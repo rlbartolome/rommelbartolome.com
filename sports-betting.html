@@ -4,100 +4,86 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sports Betting — Rommel Bartolome</title>
-<meta name="description" content="Articles and projects I created on sports betting.">
+<meta name="description" content="The mathematics, psychology and market mechanics behind the odds.">
+<meta name="theme-color" content="#08090b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="assets/img/avatar.png">
 </head>
 <body>
+<div id="progress"></div>
 <nav class="site-nav"><div class="wrap">
-<a class="brand" href="index.html"><img src="assets/img/avatar.png" alt="Rommel Bartolome">ROMMEL BARTOLOME</a>
+<a class="brand" href="index.html"><span class="dot"></span>ROMMEL&nbsp;BARTOLOME</a>
 <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="online-cv.html">Online CV</a></li><li><a href="machine-learning.html">Machine Learning</a></li><li><a href="image-processing.html">Image Processing</a></li><li><a href="sports-betting.html" class="active">Sports Betting</a></li></ul>
 </div></nav>
-<header class="hero">
-<div class="wrap"><span class="eyebrow">Sports Betting</span>
-<h1>Sports Betting Articles</h1>
-<p class="lede">Articles and projects I created on sports betting.</p></div>
-</header>
-<section class="block"><div class="wrap"><div class="card-grid"><div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="arbitrage-betting.html">Arbitrage Betting</a></h3>
-<p>Is there really a risk free bet?</p>
-<a class="more" href="arbitrage-betting.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="statistics-influence.html">Statistics Influence on Odds</a></h3>
-<p>How game statistics influence betting odds.</p>
-<a class="more" href="statistics-influence.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="odds-movement.html">Odds Movement for Soccer Odds</a></h3>
-<p>How to predict the movement of soccer odds in general?</p>
-<a class="more" href="odds-movement.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="getting-an.html">Getting an Edge in Betting</a></h3>
-<p>How do you use your knowledge to win in the long term?</p>
-<a class="more" href="getting-an.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="possibility-effects.html">Possibility Effects</a></h3>
-<p>Discussing the winning high you get with the possibility of winning big.</p>
-<a class="more" href="possibility-effects.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="winning-streaks.html">Winning Streaks</a></h3>
-<p>Is there really such a thing as winning streaks?</p>
-<a class="more" href="winning-streaks.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="loss-aversion.html">Loss Aversion</a></h3>
-<p>How is loss aversion affecting sports betting odds?</p>
-<a class="more" href="loss-aversion.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="green-lumber-fallacy.html">Green Lumber Fallacy</a></h3>
-<p>Are you falling into this trap in sports betting?</p>
-<a class="more" href="green-lumber-fallacy.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="confirmation-bias.html">Confirmation Bias</a></h3>
-<p>How does confirmation bias affect sports betting?</p>
-<a class="more" href="confirmation-bias.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="expected-value.html">Expected Value Interpretation</a></h3>
-<p>Explaining expected value and implementing it on Lotto data.</p>
-<a class="more" href="expected-value.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="poisson-equation-in-sports-betting.html">Implementing the Poisson Equation for Sports Betting</a></h3>
-<p>How to calculate your own odds using Poisson.</p>
-<a class="more" href="poisson-equation-in-sports-betting.html">Read more &rarr;</a>
-</div>
-<div class="card">
-<span class="tag">Sports Betting</span>
-<h3><a href="what-is-the-best-staking-method.html">What is the best staking method so you won't lose (a lot of) money?</a></h3>
-<p>I'll discuss five staking methods that you can use.</p>
-<a class="more" href="what-is-the-best-staking-method.html">Read more &rarr;</a>
-</div></div></div></section>
+<main class="page">
+<header class="page-hero"><div class="wrap">
+<div class="kicker"><span class="idx">INDEX</span> 12 ARTICLES</div>
+<h1>Sports Betting</h1>
+<p class="lede">The mathematics, psychology and market mechanics behind the odds.</p>
+</div></header>
+<section class="block" style="padding-top:1rem"><div class="wrap"><ul class="index-list"><li class="reveal"><a href="arbitrage-betting.html">
+<span class="t">Arbitrage Betting<span class="d">Is there really a risk free bet?</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="statistics-influence.html">
+<span class="t">Statistics Influence on Odds<span class="d">How game statistics influence betting odds.</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="odds-movement.html">
+<span class="t">Odds Movement for Soccer Odds<span class="d">How to predict the movement of soccer odds in general?</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="getting-an.html">
+<span class="t">Getting an Edge in Betting<span class="d">How do you use your knowledge to win in the long term?</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="possibility-effects.html">
+<span class="t">Possibility Effects<span class="d">Discussing the winning high you get with the possibility of winning big.</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="winning-streaks.html">
+<span class="t">Winning Streaks<span class="d">Is there really such a thing as winning streaks?</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="loss-aversion.html">
+<span class="t">Loss Aversion<span class="d">How is loss aversion affecting sports betting odds?</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="green-lumber-fallacy.html">
+<span class="t">Green Lumber Fallacy<span class="d">Are you falling into this trap in sports betting?</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="confirmation-bias.html">
+<span class="t">Confirmation Bias<span class="d">How does confirmation bias affect sports betting?</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="expected-value.html">
+<span class="t">Expected Value Interpretation<span class="d">Explaining expected value and implementing it on Lotto data.</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="poisson-equation-in-sports-betting.html">
+<span class="t">Implementing the Poisson Equation for Sports Betting<span class="d">How to calculate your own odds using Poisson.</span></span>
+<span class="arr">&rarr;</span>
+</a></li>
+<li class="reveal"><a href="what-is-the-best-staking-method.html">
+<span class="t">What is the best staking method so you won't lose (a lot of) money?<span class="d">I'll discuss five staking methods that you can use.</span></span>
+<span class="arr">&rarr;</span>
+</a></li></ul></div></section>
+</main>
 <footer class="site-footer"><div class="wrap">
+<div class="frow">
+<a class="brand" href="index.html"><span class="dot"></span>RB</a>
 <div class="footer-links">
 <a href="mailto:rommelbartolome@gmail.com">Email</a>
 <a href="https://www.linkedin.com/in/rommelbartolome">LinkedIn</a>
 <a href="https://www.facebook.com/rommelbartolome">Facebook</a>
 </div>
-<div class="location">Bonifacio Global City, Taguig, Philippines</div>
-<div>&copy; RommelBartolome.com. All rights reserved.</div>
+</div>
+<div class="fmeta">BONIFACIO GLOBAL CITY, TAGUIG, PHILIPPINES &nbsp;//&nbsp; &copy; ROMMELBARTOLOME.COM &mdash; ALL RIGHTS RESERVED</div>
 </div></footer>
+<script defer src="assets/js/main.js"></script>
 </body>
 </html>

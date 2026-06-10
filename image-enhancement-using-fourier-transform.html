@@ -5,19 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Enhancing images using Fourier Transform — Rommel Bartolome</title>
 <meta name="description" content="Removal of repeating patterns by removing frequencies.">
+<meta name="theme-color" content="#08090b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="assets/img/avatar.png">
 </head>
 <body>
+<div id="progress"></div>
 <nav class="site-nav"><div class="wrap">
-<a class="brand" href="index.html"><img src="assets/img/avatar.png" alt="Rommel Bartolome">ROMMEL BARTOLOME</a>
+<a class="brand" href="index.html"><span class="dot"></span>ROMMEL&nbsp;BARTOLOME</a>
 <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="online-cv.html">Online CV</a></li><li><a href="machine-learning.html">Machine Learning</a></li><li><a href="image-processing.html" class="active">Image Processing</a></li><li><a href="sports-betting.html">Sports Betting</a></li></ul>
 </div></nav>
+<main class="page">
 <header class="article-header"><div class="prose-wrap">
 <a class="tag" href="image-processing.html">Image Processing</a>
 <h1>Enhancing images using Fourier Transform</h1>
 <p class="subtitle">Removal of repeating patterns by removing frequencies.</p>
-<figure class="hero-figure"><img src="assets/img/image-enhancement-using-fourier-transform.jpg" alt="Enhancing images using Fourier Transform"></figure>
+<figure class="hero-figure reveal"><img src="assets/img/image-enhancement-using-fourier-transform.jpg" alt="Enhancing images using Fourier Transform"></figure>
 </div></header>
 <article class="prose"><div class="prose-wrap">
 <p>For this blog entry, I'll be discussing Fourier transform. For those who do not know anything about Fourier Transform (FT), just imagine that it's a way to a new world&mdash;in this world, you see frequency profiles instead of the usual things you see.</p>
@@ -44,16 +50,21 @@
 <p>Lastly, we invert the filter mask in Figure 9b and then take its inverse Fourier transform. The result can be described as that of a circular aperture's FFT as seen in Figure 1. However, when you try to look closely, one can see &lsquo;weave&rsquo; patterns. Amazing! &#128516;</p>
 <p><em>Figure 10. The inverted grayscale image of the mask in Figure 9b and its Fourier transform.</em></p>
 
-<a class="back-link" href="image-processing.html">&larr; Back to Image Processing</a>
+<div class="pager"><a class="prev" href="color-image-segmentation.html"><span class="dir">&larr; Previous</span><span class="pt">Color Image Segmentation</span></a><span></span></div>
+<a class="back-link" href="image-processing.html">&larr; All Image Processing articles</a>
 </div></article>
+</main>
 <footer class="site-footer"><div class="wrap">
+<div class="frow">
+<a class="brand" href="index.html"><span class="dot"></span>RB</a>
 <div class="footer-links">
 <a href="mailto:rommelbartolome@gmail.com">Email</a>
 <a href="https://www.linkedin.com/in/rommelbartolome">LinkedIn</a>
 <a href="https://www.facebook.com/rommelbartolome">Facebook</a>
 </div>
-<div class="location">Bonifacio Global City, Taguig, Philippines</div>
-<div>&copy; RommelBartolome.com. All rights reserved.</div>
+</div>
+<div class="fmeta">BONIFACIO GLOBAL CITY, TAGUIG, PHILIPPINES &nbsp;//&nbsp; &copy; ROMMELBARTOLOME.COM &mdash; ALL RIGHTS RESERVED</div>
 </div></footer>
+<script defer src="assets/js/main.js"></script>
 </body>
 </html>

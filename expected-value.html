@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expected Value Interpretation — Rommel Bartolome</title>
+<meta name="description" content="Explaining expected value and implementing it on Lotto data.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/avatar.png">
+</head>
+<body>
+<nav class="site-nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/avatar.png" alt="Rommel Bartolome">ROMMEL BARTOLOME</a>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="online-cv.html">Online CV</a></li><li><a href="machine-learning.html">Machine Learning</a></li><li><a href="image-processing.html">Image Processing</a></li><li><a href="sports-betting.html" class="active">Sports Betting</a></li></ul>
+</div></nav>
+<header class="article-header"><div class="prose-wrap">
+<a class="tag" href="sports-betting.html">Sports Betting</a>
+<h1>Expected Value Interpretation</h1>
+<p class="subtitle">Explaining expected value and implementing it on Lotto data.</p>
+<figure class="hero-figure"><img src="assets/img/expected-value.jpg" alt="Expected Value Interpretation"></figure>
+</div></header>
+<article class="prose"><div class="prose-wrap">
+<p>We begin by interpreting the Expected Value (EV) in betting to avoid confusion and misconception. EV is the amount of money that you will win or lose, on the average, when you bet on a certain result.</p>
+<p>The term <em>on the average</em> is very important as the EV is the amount of money you can gain or lose if you bet on a certain result in the long run. If for example, you have an expected value of -$0.30, you are expected to lose $0.30 on each bet you are making. This value will be true if you bet many times, and the accuracy depends on the number of times you will be betting. From the law of large numbers, the more you bet, the more accurate the EV can be.</p>
+<p>In this entry, I will try to calculate the EV of lotto and let's see if playing it is worth the money.</p>
+<h2>Calculating EV</h2>
+<p>We calculate EV using the following formula:</p>
+<pre><code>EV = PWin &times; Profit per Bet &minus; PLose &times; Loss per Bet</code></pre>
+<p>where PWin is the probability of winning and PLose is the probability of losing the bet. We get the PWin in sports betting by getting the inverse of the Euro Odds. The Profit per bet is calculated as follows:</p>
+<pre><code>Profit per Bet = Stake &times; Bet &minus; Bet</code></pre>
+<p>The PLose is determined by getting the sum of the probability of all other scenarios. And lastly, the Loss per bet is the stake you will be giving.</p>
+<h2>EV of Lotto</h2>
+<p>In calculating the EV of lotto 6/42, we must first know how it works. A player will select a combination of 6 numbers from 1 to 42. The number combination of the player should match the number combination drawn via random selection. We can get the probability of getting a right combination of 6 numbers using this formula [1]:</p>
+<pre><code>n! / [k! (n-k)!] = 49! / [6! (49-6)!] = 13,983,816</code></pre>
+<p>Using the formula of EV above:</p>
+<pre><code>EV = (1/13,983,816) &times; Php 76,762,788 &minus; (1 &minus; 1/13,983,816) &times; Php 20 = &minus;P14.51</code></pre>
+<p>Php 76,762,808.00 [2] is the jackpot as of 23-Feb-14. Therefore, if you place many bets on the Philippine lotto 6/49, you will lose Php 14.51 on each bet on the average. That is a big waste of money! Therefore, betting on lotto is actually a bad idea if you want to win some money. Only when the EV is positive is it logical to place bets on it.</p>
+<p>To make the EV positive, you have to wait for the jackpot to be around Php 280 Million (or Php 260 Million if you consider other consolation prizes [3])&mdash;which never happened. The largest was in 2008 where the prize was Php 249 million [4]. And of course, this does not include the fact that you may share the jackpot prize with other people!</p>
+<p>The point is, planning to get rich using the lottery isn't really a great idea. Even though the EV is positive, you need to spend lots and lots of money to cover all bets and may end up losing when you share the prize with others and of course, there is the nifty tax that will surely eat a great percentage of your winnings.</p>
+<p>However, if you see your Php 20.00 as your daily giving to charity, or buying tickets gives you the certain hope you need that all your money problems will disappear one day, to keep you sane from all the money problems you are experiencing, then I think all my logical explanations won't matter.</p>
+<h2>Sports Betting and EV</h2>
+<p>Calculating the EV in sports betting is very important as this gives the bettor the &ldquo;value&rdquo; of their bet. The most positive (or least negative) EV gives the best value for each bet. We calculate the EV of a match from IBC Bet:</p>
+<p>The odds of Galatasaray (G) winning is 3.80, Chelsea (C) winning 1.97 and the match being a draw (D) is 3.34. We have calculated the EV to be -$0.70 (see Table 1). The probability of the event happening is just the inverse of the odds. The total profit is just the total winnings, or the odds multiplied by the stake, minus the stake itself. The EV is calculated using the formula given.</p>
+<p><em>Table 1. The EV calculation of the match above.</em></p>
+<p>As we can see, it is still negative. We may relate the value of the EV with the market percentage, which is 107.02%. This means on the average, a bettor loses $0.70 per bet. All sports betting companies give a negative EV because if they don't, in the long run they will lose money.</p>
+<h2>How to use EV in sports betting</h2>
+<p>If you will just lose money in sports betting, is there a guarantee that I can earn in this field? At a certain point, Yes! It's because sports betting companies don't always agree on the odds of a certain bet. In a future article on arbitrage betting, we will discuss how you can take advantage of the differences in the given odds of a certain event from different companies, resulting in positive EV.</p>
+<p>Also, unlike lotto and other betting which relies only on pure luck&mdash;if you can actually predict the outcome of a certain sporting event based on statistics and knowledge about the sport and on sports betting itself, you can outsmart the bookmaker and make lots of money!</p>
+<p>Again, the heart of sports betting is knowing the risks and the value of each bet. Knowing the true value of each bet made is one of the keys to winning.</p>
+<blockquote>&ldquo;Price is what you pay. Value is what you get.&rdquo; &mdash; Warren Buffett</blockquote>
+<div class="refs"><p>References:</p>
+<p>[1] http://en.wikipedia.org/wiki/Combination</p>
+<p>[2] http://pwedeh.com/category/superlotto-649-pcso-results/page/2</p>
+<p>[3] http://nontrivialpursuit.blogspot.com/2010/02/so-when-does-it-make-sense-to-play.html</p>
+<p>[4] http://newsinfo.inquirer.net/breakingnews/nation/view/20080331-127383/P249-M-lotto-winner-from-Luzon-says-PCSO</p></div>
+
+<a class="back-link" href="sports-betting.html">&larr; Back to Sports Betting</a>
+</div></article>
+<footer class="site-footer"><div class="wrap">
+<div class="footer-links">
+<a href="mailto:rommelbartolome@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/rommelbartolome">LinkedIn</a>
+<a href="https://www.facebook.com/rommelbartolome">Facebook</a>
+</div>
+<div class="location">Bonifacio Global City, Taguig, Philippines</div>
+<div>&copy; RommelBartolome.com. All rights reserved.</div>
+</div></footer>
+</body>
+</html>

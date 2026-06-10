@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculating g using Video Processing — Rommel Bartolome</title>
+<meta name="description" content="Converting a video to image to estimate the value of the constant g.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/avatar.png">
+</head>
+<body>
+<nav class="site-nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/avatar.png" alt="Rommel Bartolome">ROMMEL BARTOLOME</a>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="online-cv.html">Online CV</a></li><li><a href="machine-learning.html">Machine Learning</a></li><li><a href="image-processing.html" class="active">Image Processing</a></li><li><a href="sports-betting.html">Sports Betting</a></li></ul>
+</div></nav>
+<header class="article-header"><div class="prose-wrap">
+<a class="tag" href="image-processing.html">Image Processing</a>
+<h1>Calculating g using Video Processing</h1>
+<p class="subtitle">Converting a video to image to estimate the value of the constant g.</p>
+<figure class="hero-figure"><img src="assets/img/calculating-g.jpg" alt="Calculating g using Video Processing"></figure>
+</div></header>
+<article class="prose"><div class="prose-wrap">
+<p>For this experiment, we shall be using Basic Video Processing techniques in order to determine the value of gravity g! Well, videos are actually just a series of images which are shown in succession with rapid speed so that it looks like it's moving.</p>
+<p>So, since we have already learned a lot of image processing techniques, what we just need to do is to separate the video into images and then apply the image processing techniques we have learned. First, we have captured an image of a falling ball. Using kinematics we know that we can compute the gravity by considering a certain object in a free fall, neglecting air resistance as:</p>
+<pre><code>g = 2h / t&sup2;</code></pre>
+<p>Where h is the distance travelled by the object from point A to point B and t is the time the object travelled from point A to point B. Figure 1 shows the series of images of the ball being dropped from a 1m height from the floor. Using VirtualDub 1.6.19, the video was separated into frames.</p>
+<p><em>Figure 1. The ball being dropped 1m from the floor.</em></p>
+<p>After separating the video into images, image processing is done. From the previous activity, we have learned image segmentation. This technique is applied in order to segment the blue ball from the background. The non-parametric segmentation is used. After segmentation, there are still unwanted dots which are not considered as the ball so &lsquo;cleaning&rsquo; was done. Image erosion was done in order to clean the image. Figure 2 shows the final images to be used for the determination of g after segmentation and erosion. Note that because of the slow acquisition of the data and the fast movement of the ball, latter frames are not segmented properly.</p>
+<p><em>Figure 2. The segmented and &lsquo;cleaned&rsquo; images of the ball in free fall motion.</em></p>
+<p>Since the position of the ball is not exact, estimation is done to determine the position of the ball. Estimation is done by getting the positions of the white pixels. The x positions as well as the y positions were averaged. Table 1 shows the average values of the ball position (x and y). The distance was determined using the distance formula:</p>
+<pre><code>h = sqrt[ (x2 - x1)&sup2; + (y2 - y1)&sup2; ]</code></pre>
+<p>The resulting h here is the distance from the average position of the ball to another position at a different time in pixels. Since we do not want to express gravity in pixels per second squared, we convert the pixel values to meters. It is found that 966 pixels are in 1 m. Using this conversion factor, the value of the actual distance in meters is obtained. Lastly, the value of the gravity is obtained using equation 1. Time t is obtained by dividing the number of frames that have passed by the frame rate which is 20 frames per second. Table 1 summarizes the results obtained.</p>
+<p><em>Table 1. Calculation of g. The average position of the ball, the height travelled in pixels and meters and the value of the gravity calculated.</em></p>
+<p>The values of gravity differ with respect to the position of the ball. Figure 3 shows the plot of the % error with the image number. An interesting phenomenon can be seen. A large percent error can be seen at the ends while a relatively low percent error is seen in the middle. This is probably because at the start, the gravity calculated is still not constant and is subject to the holder's initial release; however, at the latter frames, the ball cannot be segmented properly probably due to aliasing.</p>
+<p><em>Figure 3. The % error in calculation of g with respect to the image number.</em></p>
+
+<a class="back-link" href="image-processing.html">&larr; Back to Image Processing</a>
+</div></article>
+<footer class="site-footer"><div class="wrap">
+<div class="footer-links">
+<a href="mailto:rommelbartolome@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/rommelbartolome">LinkedIn</a>
+<a href="https://www.facebook.com/rommelbartolome">Facebook</a>
+</div>
+<div class="location">Bonifacio Global City, Taguig, Philippines</div>
+<div>&copy; RommelBartolome.com. All rights reserved.</div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boon or Bane? Is e-learning affecting the grades of students? — Rommel Bartolome</title>
+<meta name="description" content="Use of linear regression to determine if computers affect learning.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/avatar.png">
+</head>
+<body>
+<nav class="site-nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/avatar.png" alt="Rommel Bartolome">ROMMEL BARTOLOME</a>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="online-cv.html">Online CV</a></li><li><a href="machine-learning.html" class="active">Machine Learning</a></li><li><a href="image-processing.html">Image Processing</a></li><li><a href="sports-betting.html">Sports Betting</a></li></ul>
+</div></nav>
+<header class="article-header"><div class="prose-wrap">
+<a class="tag" href="machine-learning.html">Machine Learning</a>
+<h1>Boon or Bane? Is e-learning affecting the grades of students?</h1>
+<p class="subtitle">Use of linear regression to determine if computers affect learning.</p>
+<figure class="hero-figure"><img src="assets/img/e-learning-effects.jpg" alt="Boon or Bane? Is e-learning affecting the grades of students?"></figure>
+</div></header>
+<article class="prose"><div class="prose-wrap">
+<h2>The TL;DR</h2>
+<p>E-Learning has been very widespread in the past century due to the rise of computers. Several benefits of e-learning include reduced costs, scalability, consistency and the ability to accommodate different time zones. However, there are skeptics who say that e-learning can be a &ldquo;bane&rdquo; as it removes the focus of the students due to the freedom it gives. In this exercise, we discover knowledge on a dataset where students use an e-learning facility wherein while using the platform, their online footprint is being recorded. From these, we engineered four features: (1) focus_level &mdash; times where they were browsing non-related sites, (2) time_finished &mdash; time it takes to finish the exercise, (3) idle_time &mdash; time where they were doing nothing, and (4) activity_level &mdash; number of clicks, keystrokes and mouse wheeling they made. We then find correlation of these engineered features with grades, using a linear model. It was found that among all of the features, only the time_finished was the significant variable and the model with only this variable gives the best prediction. This means that the faster a student finishes the exercise, the higher the student's final grade will be. Among all the variables, this is the most unrelated to e-learning. This also means that a student browsing non-related sites, with lots of idle time and with little activity level does not necessarily get lower grades. As such, while e-learning may remove the focus of the students as they are free to visit any site during the session, it does not necessarily mean that e-learning will be a &ldquo;bane&rdquo;, as it does not significantly affect the student's grade.</p>
+<h2>The Actual Analysis</h2>
+<p>After checking the data, we can formulate what we may want to discover. From the grades data, we can see that there are students that have very low marks. What we want to ask is if this is due to the fact that they are just doing nothing or are doing other things on the computer. We would also like to know if more activity on the computer means higher grades. As such we would like to engineer these features, with grades as our response variable:</p>
+<ul>
+<li><strong>focus</strong> &mdash; Is the student viewing pages related to the exercise? Here, we would just like to classify everything as related or non-related.</li>
+<li><strong>idle_time</strong> &mdash; How much idle time was spent by the student?</li>
+<li><strong>time_finished</strong> &mdash; How long did the student take to finish? We will find the difference of the start time and the end time.</li>
+<li><strong>activity_level</strong> &mdash; Did the student have more activity (keystrokes, mouse movements)?</li>
+</ul>
+<p>We will consolidate this into just one feature. We check the histogram of the final grades: from here, we can see the almost uniform distribution of the grades from 10&ndash;100. We now engineer the other variables, using only the students with grades. We check the correlation of our new variables.</p>
+<p>Comparing the correlation of final variables with all other engineered features, we can see strong correlation with idle_time and time_finished.</p>
+<p>Here is our final formula:</p>
+<pre><code>lm(formula = final ~ time_finished, data = education_train)</code></pre>
+<p>It means that only the time finished affects the final grade. If a student passes their worksheet earlier, the higher their grade is. The full code of this blog can be seen at <a href="https://github.com/rlbartolome/education" target="_blank" rel="noopener">github.com/rlbartolome/education</a>. Here, I discussed how the data is transformed and how I did the linear model selection!</p>
+
+<a class="back-link" href="machine-learning.html">&larr; Back to Machine Learning</a>
+</div></article>
+<footer class="site-footer"><div class="wrap">
+<div class="footer-links">
+<a href="mailto:rommelbartolome@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/rommelbartolome">LinkedIn</a>
+<a href="https://www.facebook.com/rommelbartolome">Facebook</a>
+</div>
+<div class="location">Bonifacio Global City, Taguig, Philippines</div>
+<div>&copy; RommelBartolome.com. All rights reserved.</div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can we block internet advertisements? — Rommel Bartolome</title>
+<meta name="description" content="Use of PCA and SVMs to classify if an image is an ad or not.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/avatar.png">
+</head>
+<body>
+<nav class="site-nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/avatar.png" alt="Rommel Bartolome">ROMMEL BARTOLOME</a>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="online-cv.html">Online CV</a></li><li><a href="machine-learning.html" class="active">Machine Learning</a></li><li><a href="image-processing.html">Image Processing</a></li><li><a href="sports-betting.html">Sports Betting</a></li></ul>
+</div></nav>
+<header class="article-header"><div class="prose-wrap">
+<a class="tag" href="machine-learning.html">Machine Learning</a>
+<h1>Can we block internet advertisements?</h1>
+<p class="subtitle">Use of PCA and SVMs to classify if an image is an ad or not.</p>
+<figure class="hero-figure"><img src="assets/img/advertisement-blocking.jpg" alt="Can we block internet advertisements?"></figure>
+</div></header>
+<article class="prose"><div class="prose-wrap">
+<p>Advertisements have always been an essential part of all businesses around the world. In particular, internet advertisements in the form of banners in websites have been on the rise especially at the turn of the century. However, many users do not want to be cluttered with these images.</p>
+<p>In this exercise, we explore a dataset where we have several image features, such as size, if the site is local and on what site it came from. Exploring the dataset, we found that it had a lot of components (1,559 variables). As such, we performed Principal Components Analysis (PCA) to the data to decrease the number of components. We found that (1) 110 components can explain 75% of the variance and (2) 73 components can explain 60% of the variance, which is a massive decrease from the original number of components. We also classified the images using Support Vector Machines, where indeed, we found that it is possible to classify images as ads or non-ads with an accuracy of 96.2% using a Linear Kernel. This is similar to what the original authors got at 97% accuracy.</p>
+<p>From the source, it was described that this dataset represents a set of possible advertisements on Internet pages. The features encode the geometry of the image as well as phrases occurring in the URL, the image's URL and alt text, the anchor text, and words occurring near the anchor text. The task is to predict whether an image is an advertisement (&ldquo;ad&rdquo;) or not (&ldquo;nonad&rdquo;). The following is the data attributes given by the original creators of the dataset:</p>
+<ul>
+<li>height: continuous</li>
+<li>width: continuous</li>
+<li>aratio: continuous</li>
+<li>local: 0,1.</li>
+<li>457 features from url terms, each of the form &ldquo;url*term1+term2&hellip;&rdquo;</li>
+<li>495 features from origurl terms, in same form</li>
+<li>472 features from ancurl terms, in same form</li>
+<li>111 features from alt terms, in same form</li>
+<li>19 features from caption terms</li>
+<li>tagging if the image is an ad or a non-ad</li>
+</ul>
+<h2>Principal Components Analysis</h2>
+<p>We can see that our data is 3,278 entries with 1,559 columns. Our data has too many columns. To solve this too much dimensionality, we shall use principal components analysis. We run an initial PCA fit on the full data set.</p>
+<p>We find that up to ~110 components, we achieve around 75% of the cumulative proportion of variance explained. We try to lower it since 110 components is still very large: at 73 components, we can explain 60% of the variance.</p>
+<h2>Support Vector Machines</h2>
+<p>We try Support Vector Machines to predict if an image is an ad or not. We split the data into train and test sets, and find the best model.</p>
+<p>We check the best model in terms of the accuracy. For the SVM technique, we can see that the best model in terms of accuracy is the SVM model with a Linear kernel, having 96.3% accuracy. However, this is a close call with the one with a Radial Kernel. Now, we look at the value of specificity: the Radial Kernel has a better specificity. As such, since the accuracy difference between the Radial and Linear kernels is very small, we would choose the Linear Kernel SVM to classify ads based on the attributes provided.</p>
+<p>The full code can be found at <a href="https://github.com/rlbartolome/advertisement" target="_blank" rel="noopener">github.com/rlbartolome/advertisement</a>. I included the data loading, transformation and kernel selection codes there.</p>
+
+<a class="back-link" href="machine-learning.html">&larr; Back to Machine Learning</a>
+</div></article>
+<footer class="site-footer"><div class="wrap">
+<div class="footer-links">
+<a href="mailto:rommelbartolome@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/rommelbartolome">LinkedIn</a>
+<a href="https://www.facebook.com/rommelbartolome">Facebook</a>
+</div>
+<div class="location">Bonifacio Global City, Taguig, Philippines</div>
+<div>&copy; RommelBartolome.com. All rights reserved.</div>
+</div></footer>
+</body>
+</html>

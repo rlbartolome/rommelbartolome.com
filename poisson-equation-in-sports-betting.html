@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Implementing the Poisson Equation for Sports Betting — Rommel Bartolome</title>
+<meta name="description" content="How to calculate your own odds using Poisson.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/avatar.png">
+</head>
+<body>
+<nav class="site-nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/avatar.png" alt="Rommel Bartolome">ROMMEL BARTOLOME</a>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="online-cv.html">Online CV</a></li><li><a href="machine-learning.html">Machine Learning</a></li><li><a href="image-processing.html">Image Processing</a></li><li><a href="sports-betting.html" class="active">Sports Betting</a></li></ul>
+</div></nav>
+<header class="article-header"><div class="prose-wrap">
+<a class="tag" href="sports-betting.html">Sports Betting</a>
+<h1>Implementing the Poisson Equation for Sports Betting</h1>
+<p class="subtitle">How to calculate your own odds using Poisson.</p>
+<figure class="hero-figure"><img src="assets/img/poisson-equation-in-sports-betting.jpg" alt="Implementing the Poisson Equation for Sports Betting"></figure>
+</div></header>
+<article class="prose"><div class="prose-wrap">
+<p>I remember a few years ago when I first encountered the equation for the Poisson Distribution in one of my classes. It was my Physics 151 class, statistical physics I. Heck, it was bloody!</p>
+<p>How does the Poisson Distribution look like? It looks like this:</p>
+<pre><code>P(x) = e&#8315;&#7512; &times; (u&#739; / x!)</code></pre>
+<p>Where P is the probability, u is the average occurrence of the event and x is the number of events happening (which is never negative). If you think this equation is complicated, it's actually one of the simplest distributions. It was derived from a much, much more complicated equation called the Binomial distribution. I remember doing the bloody derivations, so just better thank Sim&eacute;on Denis Poisson that he created a much more concise, elegant equation.</p>
+<p>Back then, I never thought that I would use these distributions in a practical matter (we were using it to find probabilities for ideal gases&mdash;I can't even understand what it really meant!). Oh well, it seems that the sleepless nights doing my problem sets for that class had a purpose and I can finally use it now.</p>
+<h2>Calculating the football odds using the Poisson Distribution</h2>
+<p>The only thing needed for you to calculate the probability of an event happening x times is to find the average occurrence of that event. Seems easy right? Let's say that you think that on average, a team has 1.5 goals per game. You can already use the Poisson Distribution to determine the probability of them having 1 goal in a game. In the equation above just use u=1.5 (the average) and x=1.</p>
+<p>It tells us that the probability of having 1 goal is 33.47%, which is the highest. Of course as it deviates from the mean, the probability lowers. From our computation, the probability of having 7 goals is 0.08%.</p>
+<p>I just used the <code>POISSON()</code> function in OpenOffice so the computation is really not that complicated; you won't be needing the exponentials and the factorials. However, getting the correct value for the average goal u is the crucial, more complicated one!</p>
+<h2>Calculating the average goal u</h2>
+<p>One way to compute the average goal is by using the goal statistics from the league's previous season [1]. This can be done in three steps:</p>
+<ol>
+<li>Determine the average number of home and away goals of the whole league.</li>
+<li>Determine the Attack and Defense Strength of each team, from the stats of each team.</li>
+<li>Depending if they are playing away or home, multiply the Defense Strength, Attack Strength and the league's average goal.</li>
+</ol>
+<p>For this article, we will determine the average goal for the 26-Apr-14 game of the Premier League, Southampton vs Everton. Let us determine the average goal step-by-step.</p>
+<h3>1. Determine the average number of home and away goals of the whole league.</h3>
+<p>In the 2012-2013 season, there were 592 home goals and 471 away goals. This is in the span of 38 games (19 away, 19 home) with 20 teams. To determine the League's average home and away goals (ALG), we use this equation:</p>
+<pre><code>ALG HOME = GOALS HOME / # OF TEAMS / # GAMES HOME
+ALG AWAY = GOALS AWAY / # OF TEAMS / # GAMES AWAY</code></pre>
+<p>From this, ALG HOME = 592/20/19 = 1.558 and ALG AWAY = 471/20/19 = 1.239.</p>
+<h3>2. Determine the Attack and Defense Strength of each team, from the stats of each team.</h3>
+<p>Since Southampton will be playing home, we check their home statistics (This is very important! I was confused with this one for a while.). From betexplorer.com, they have 26 goals scored while 24 were conceded at home. We calculate the Attack and Defense strength of Southampton from home using this formula:</p>
+<pre><code>ATTACK STRENGTH = GOALS SCORED AT HOME / # OF GAMES HOME / ALG HOME
+DEFENSE STRENGTH = GOALS CONCEDED AT HOME / # OF GAMES HOME / ALG AWAY</code></pre>
+<p>Everton will be playing away, so obviously we use their away statistics. Again from betexplorer.com, we know that playing away they have created 22 goals while conceding 23. Conversely, the Attack and Defense strength can be calculated as:</p>
+<pre><code>ATTACK STRENGTH = GOALS SCORED AWAY / # OF GAMES AWAY / ALG AWAY
+DEFENSE STRENGTH = GOALS CONCEDED AWAY / # OF GAMES AWAY / ALG HOME</code></pre>
+<p>Using these equations, we have calculated the attack and defense strengths of Southampton (Home) and Everton (Away). This means that Southampton has a high defense strength compared to the average team playing home by 1.91% while on the attack, they are 12.16% lower. Everton on the other hand are both below average.</p>
+<h3>3. Depending if they are playing away or home, multiply the Defense Strength, Attack Strength and the league's average goal.</h3>
+<p>Lastly, we determine the average goal of the teams. To get the average goal for each team, we use this formula:</p>
+<pre><code>Team Average Goal = Team Attack Strength &times; Opponent's Defense Strength &times; ALG</code></pre>
+<p>For Southampton, the attack strength is 87.84%, its opponent's defense strength is 77.70% while the average number of goals playing from home is 1.558. For this particular game, Southampton is predicted to have 1.063 goals.</p>
+<p>The same calculation follows for Everton with 93.42% attack strength, its opponent with 101.91% defense strength and with the average number of goals playing away at 1.239. For this game, Everton is predicted to have 1.180 goals.</p>
+<h2>Poisson Distribution given the average goal</h2>
+<p>The calculation of the average goal is the crucial one. Since we are already finished with that, we can now use the Poisson distribution! Using the equation presented, we determine the probability of 0, 1, 2, &hellip;, 6 goals.</p>
+<p>The most probable thing that will happen is that they will score at least one goal each (34.5% and 36.7%). So how can this be useful in predicting odds? Let's say for example that you are betting on the 1&times;2 market; what you can do is to check all the goal combinations. So, a 0-0 score has a probability of happening of 10.61% (34.5% &times; 30.7%). We can determine the 1&times;2 odds by checking all the possible score combinations.</p>
+<p>I have just considered instances up to 3 goals, that is why the total percentage is only 88.55%, not 100%. It will be too many to calculate if you consider up to, say, 6 goals. Fortunately there is an online calculator [2] to determine the 1&times;2 odds using the average goals for each team so we won't have to do it the hard way.</p>
+<h2>Checking our prediction</h2>
+<p>From the online 1&times;2 odds calculator, we can determine the 1&times;2 odds from our predictions. The true odds (without profit margin) are 32.7% &ndash; 28.7% &ndash; 38.6%. Now, let's put it to the test. Is our calculation correct? I have checked the odds of the game from SBObet.</p>
+<p>Since this has a profit margin of 7.23%, we need to normalize it. We take the inverse of these odds and then divide by 107.23% so that we can see the true odds.</p>
+<p>Our predictions are almost the same, with only 0.1% discrepancy! It's almost the same! We probably, by a little bit, may have cracked the code on how SBObet creates its odds! Our Poisson calculation is working!</p>
+<h2>Use of Poisson in sports betting and its limitations</h2>
+<p>From our calculations, it can be seen that social, environmental and other factors are not accounted for. Maybe a new player will be introduced. Or there is hatred between players. As a bettor, you can account for other factors the system cannot. As we have seen in the calculations, only previous records are accounted for (although some bookmakers may take these into account).</p>
+<p>Poisson distribution is a powerful tool in sports betting especially if combined with other sports betting concepts such as the Expected Value. Good thing I was able to use this equation not just for computing quantum gases which I have no idea on its significance&mdash;but for a more practical one.</p>
+<div class="refs"><p>References:</p>
+<p>[1] BetExplorer. http://www.betexplorer.com/soccer/england/premier-league-2012-2013/</p>
+<p>[2] Goal calculator. http://annabet.com/en/poissoned/</p></div>
+
+<a class="back-link" href="sports-betting.html">&larr; Back to Sports Betting</a>
+</div></article>
+<footer class="site-footer"><div class="wrap">
+<div class="footer-links">
+<a href="mailto:rommelbartolome@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/rommelbartolome">LinkedIn</a>
+<a href="https://www.facebook.com/rommelbartolome">Facebook</a>
+</div>
+<div class="location">Bonifacio Global City, Taguig, Philippines</div>
+<div>&copy; RommelBartolome.com. All rights reserved.</div>
+</div></footer>
+</body>
+</html>

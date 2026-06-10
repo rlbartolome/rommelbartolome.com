@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Odds Movement for Soccer Odds — Rommel Bartolome</title>
+<meta name="description" content="How to predict the movement of soccer odds in general?">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/avatar.png">
+</head>
+<body>
+<nav class="site-nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/avatar.png" alt="Rommel Bartolome">ROMMEL BARTOLOME</a>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="online-cv.html">Online CV</a></li><li><a href="machine-learning.html">Machine Learning</a></li><li><a href="image-processing.html">Image Processing</a></li><li><a href="sports-betting.html" class="active">Sports Betting</a></li></ul>
+</div></nav>
+<header class="article-header"><div class="prose-wrap">
+<a class="tag" href="sports-betting.html">Sports Betting</a>
+<h1>Odds Movement for Soccer Odds</h1>
+<p class="subtitle">How to predict the movement of soccer odds in general?</p>
+<figure class="hero-figure"><img src="assets/img/odds-movement.jpg" alt="Odds Movement for Soccer Odds"></figure>
+</div></header>
+<article class="prose"><div class="prose-wrap">
+<p>Previously, we have discussed how we can use equations and distributions in order to predict the odds of a game. However, in most cases the theoretical odds are not always what is seen in actuality. In this article, we will discuss the theoretical odds movement and statistical influence of the in-running game that makes the odds deviate from the expected odds movement.</p>
+<h2>What is expected?</h2>
+<h3>Asian Handicap</h3>
+<p>We will discuss the Asian Handicap (AH) first. As a general rule, as time goes by without a goal, the handicap is expected to go to 0. For example, if the handicap is at -0.75 at the start, (-0.5/1):</p>
+<figure><img src="assets/img/odds-movement-2.jpg" alt="AH handicap progression"></figure>
+<p>It may go to level ball (0) handicap direction as time goes by. As for the actual odds, for the side that is giving (favorite) we can expect that side to have increasing odds. In this example, home is giving:</p>
+<figure><img src="assets/img/odds-movement-3.jpg" alt="AH odds progression"></figure>
+<p>The odds will go to a certain ceiling price or the highest price the bookmaker will offer for the certain handicap. If it reaches that price, it will go back to the floor price or the lowest price the bookmaker will offer but with a different, smaller handicap. This is the case for the giving team. In our example, at the 25th minute the home odds is 2.20 at -0.75; at a certain point it will go to the ceiling price (around 2.25). Between the 25th to the 30th minute, it reaches the ceiling price and goes to the next handicap in line, -0.5 but now with lower odds.</p>
+<h3>Over Under</h3>
+<p>The same goes for the goal line. For example, if the game is expected to have 1.25 (1.0/1.5) goals, the OU odds will go to the smallest goal line possible:</p>
+<figure><img src="assets/img/odds-movement-4.jpg" alt="OU goal line progression"></figure>
+<p>The smallest goal line is computed as the total goals + 0.5. In the example above, since there was no score at the 90th minute the smallest goal line possible is 0.5. The odds movement is like that of AH:</p>
+<figure><img src="assets/img/odds-movement-5.jpg" alt="OU odds progression"></figure>
+<p>The over odds become bigger and bigger until they reach the ceiling price. The moment it reaches the ceiling price, it will jump to the next goal line until it reaches the smallest goal line possible.</p>
+<h3>1&times;2</h3>
+<p>The 1&times;2 market is somewhat influenced largely by the AH market. To better understand what the theoretical odds are without any goal or red card, I dug up an old match dated 18-Oct-14 of NSC Minnesota Stars vs New York Cosmos with NO goal. In this game, NSC (Home) is favored with a -0.5 handicap. After extracting the odds from the odds history we have this graph:</p>
+<figure><img src="assets/img/odds-movement-6.jpg" alt="1x2 odds graph over time"></figure>
+<p>As we can see at the start, the home has the lowest odds as expected since it's the favorite. As time goes by, the Home and Away odds become larger and larger exponentially. The draw odds just linearly drop. At the end of the match, the draw odds are the smallest.</p>
+
+<a class="back-link" href="sports-betting.html">&larr; Back to Sports Betting</a>
+</div></article>
+<footer class="site-footer"><div class="wrap">
+<div class="footer-links">
+<a href="mailto:rommelbartolome@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/rommelbartolome">LinkedIn</a>
+<a href="https://www.facebook.com/rommelbartolome">Facebook</a>
+</div>
+<div class="location">Bonifacio Global City, Taguig, Philippines</div>
+<div>&copy; RommelBartolome.com. All rights reserved.</div>
+</div></footer>
+</body>
+</html>

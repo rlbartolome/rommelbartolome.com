@@ -5,7 +5,6 @@ name: Vendor images
 on:
   push:
     branches: [main]
-    paths: [images.json, scripts/vendor_images.py]
   workflow_dispatch:
 
 permissions:

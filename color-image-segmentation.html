@@ -41,9 +41,15 @@ rc = R./Int; gc = G./Int;</code></pre>
 <p>In NPS, we first obtain a 2D histogram of the ROI using the NCC. Then, the histogram from the ROI is back projected to the original image's NCC. It really sounds simple but it's more complicated than that.</p>
 <h2>Results</h2>
 <p>I extended this work by investigating the use of different ROI colors and sizes. Different ROIs were obtained &mdash; five colors were used &mdash; and different ROI sizes were also used.</p>
+<figure><img src="assets/img/color-image-segmentation-f1.jpg" alt="Article figure" loading="lazy"></figure>
+<figure><img src="assets/img/color-image-segmentation-f2.jpg" alt="Article figure" loading="lazy"></figure>
 <p><strong>1. Parametric Segmentation.</strong> As seen in the segmented images, the colors blue, green and violet were successfully segmented while the colors red and orange had some noise. This is because red and orange are slightly of the same hue.</p>
+<figure><img src="assets/img/color-image-segmentation-f3.jpg" alt="Article figure" loading="lazy"></figure>
 <p>The effect of the size of the ROI was also studied. It can be seen that a larger ROI produces a larger segmented image. This is probably because a larger ROI has higher standard deviation allowing more colors to be segmented.</p>
+<figure><img src="assets/img/color-image-segmentation-f4.jpg" alt="Article figure" loading="lazy"></figure>
 <p><strong>2. Non-parametric Segmentation.</strong> For the colors, it is almost the same as PS but the color violet has more residues. The code actually detects the blue-ish colors as violet. This is understandable because blue and violet are near to each other in the visible spectrum. As for the increasing ROI size, as expected, a larger ROI has larger standard deviation and therefore has a larger area segmented.</p>
+<figure><img src="assets/img/color-image-segmentation-f5.jpg" alt="Article figure" loading="lazy"></figure>
+<figure><img src="assets/img/color-image-segmentation-f6.jpg" alt="Article figure" loading="lazy"></figure>
 <p>Comparing the PS and NPS techniques, I prefer the PS method. First, the run time for PS is faster than that of the NPS. NPS utilizes the for loop in back projection and it takes some time while the PS just loads in an instant. Second, PS produces segmented images with a more defined edge.</p>
 
 <div class="pager"><a class="prev" href="area-estimation.html"><span class="dir">&larr; Previous</span><span class="pt">Area Estimation for Images with Defined Edges</span></a><a class="next" href="image-enhancement-using-fourier-transform.html"><span class="dir">Next &rarr;</span><span class="pt">Enhancing images using Fourier Transform</span></a></div>

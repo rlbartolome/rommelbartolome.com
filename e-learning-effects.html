@@ -37,6 +37,8 @@
 <li><strong>activity_level</strong> &mdash; Did the student have more activity (keystrokes, mouse movements)?</li>
 </ul>
 <p>We will consolidate this into just one feature. We check the histogram of the final grades: from here, we can see the almost uniform distribution of the grades from 10&ndash;100. We now engineer the other variables, using only the students with grades. We check the correlation of our new variables.</p>
+<figure><img src="assets/img/e-learning-effects-f1.jpg" alt="Article figure" loading="lazy"></figure>
+<figure><img src="assets/img/e-learning-effects-f2.jpg" alt="Article figure" loading="lazy"></figure>
 <p>Comparing the correlation of final variables with all other engineered features, we can see strong correlation with idle_time and time_finished.</p>
 <p>Here is our final formula:</p>
 <pre><code>lm(formula = final ~ time_finished, data = education_train)</code></pre>

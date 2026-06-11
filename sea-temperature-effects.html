@@ -33,10 +33,15 @@
 <p>with an error of 16.86%. From here, we can see that increasing the latitude, longitude and zonal winds also increases the sea surface temperature. On the other hand, the lower the meridional winds and the humidity, the higher the sea surface temperature will be. We can use these insights in detecting possible triggers for sea surface temperature increase.</p>
 <h2>The Long Cut</h2>
 <p>We first look at the histogram of the date, so we can see the distribution of observations based on time. From here, we can see that as time passes (at around 1993 to 1994), there has been an increase in the number of observations. We also check the histogram of the longitude and latitude: the longitude has more values at around -150 and 150 while latitude has a more normal distribution. Finally, we check the values for the other variables.</p>
+<figure><img src="assets/img/sea-temperature-effects-f1.jpg" alt="Article figure" loading="lazy"></figure>
+<figure><img src="assets/img/sea-temperature-effects-f2.jpg" alt="Article figure" loading="lazy"></figure>
+<figure><img src="assets/img/sea-temperature-effects-f3.jpg" alt="Article figure" loading="lazy"></figure>
 <p>From the plots, we can see that the Zonal Winds have a peak around 70. For Meridional Winds, the distribution appears to have a peak around 0 and another at 110. Humidity, Air Temperature and Sea Surface Temperature distributions appear to be relatively normal, with the latter two being skewed to the right.</p>
 <p>We look at the correlation of the variables with each other. From the correlation plot, we can see that air temperature is highly correlated to the sea surface temperature. As such, we would like to remove air temperature in our analysis since we want to know the variables affecting sea surface temperature.</p>
+<figure><img src="assets/img/sea-temperature-effects-f4.jpg" alt="Article figure" loading="lazy"></figure>
 <p>We can see that all of the variables are significant with a significant over-all p-value. As such, we can say that the sea surface can be modelled using all other variables.</p>
 <p>We look at the model diagnostics we created, then at the prediction power, and found that our error is 16.86%. The full code can be found at <a href="https://github.com/rlbartolome/elnino" target="_blank" rel="noopener">github.com/rlbartolome/elnino</a>.</p>
+<figure><img src="assets/img/sea-temperature-effects-f5.jpg" alt="Article figure" loading="lazy"></figure>
 
 <div class="pager"><a class="prev" href="e-learning-effects.html"><span class="dir">&larr; Previous</span><span class="pt">Boon or Bane? Is e-learning affecting the grades of students?</span></a><span></span></div>
 <a class="back-link" href="machine-learning.html">&larr; All Machine Learning articles</a>

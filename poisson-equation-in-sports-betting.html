@@ -33,6 +33,7 @@
 <p>Back then, I never thought that I would use these distributions in a practical matter (we were using it to find probabilities for ideal gases&mdash;I can't even understand what it really meant!). Oh well, it seems that the sleepless nights doing my problem sets for that class had a purpose and I can finally use it now.</p>
 <h2>Calculating the football odds using the Poisson Distribution</h2>
 <p>The only thing needed for you to calculate the probability of an event happening x times is to find the average occurrence of that event. Seems easy right? Let's say that you think that on average, a team has 1.5 goals per game. You can already use the Poisson Distribution to determine the probability of them having 1 goal in a game. In the equation above just use u=1.5 (the average) and x=1.</p>
+<figure><img src="assets/img/poisson-equation-in-sports-betting-f1.jpg" alt="Article figure" loading="lazy"></figure>
 <p>It tells us that the probability of having 1 goal is 33.47%, which is the highest. Of course as it deviates from the mean, the probability lowers. From our computation, the probability of having 7 goals is 0.08%.</p>
 <p>I just used the <code>POISSON()</code> function in OpenOffice so the computation is really not that complicated; you won't be needing the exponentials and the factorials. However, getting the correct value for the average goal u is the crucial, more complicated one!</p>
 <h2>Calculating the average goal u</h2>
@@ -56,6 +57,7 @@ DEFENSE STRENGTH = GOALS CONCEDED AT HOME / # OF GAMES HOME / ALG AWAY</code></p
 <pre><code>ATTACK STRENGTH = GOALS SCORED AWAY / # OF GAMES AWAY / ALG AWAY
 DEFENSE STRENGTH = GOALS CONCEDED AWAY / # OF GAMES AWAY / ALG HOME</code></pre>
 <p>Using these equations, we have calculated the attack and defense strengths of Southampton (Home) and Everton (Away). This means that Southampton has a high defense strength compared to the average team playing home by 1.91% while on the attack, they are 12.16% lower. Everton on the other hand are both below average.</p>
+<figure><img src="assets/img/poisson-equation-in-sports-betting-f2.jpg" alt="Article figure" loading="lazy"></figure>
 <h3>3. Depending if they are playing away or home, multiply the Defense Strength, Attack Strength and the league's average goal.</h3>
 <p>Lastly, we determine the average goal of the teams. To get the average goal for each team, we use this formula:</p>
 <pre><code>Team Average Goal = Team Attack Strength &times; Opponent's Defense Strength &times; ALG</code></pre>
@@ -63,12 +65,17 @@ DEFENSE STRENGTH = GOALS CONCEDED AWAY / # OF GAMES AWAY / ALG HOME</code></pre>
 <p>The same calculation follows for Everton with 93.42% attack strength, its opponent with 101.91% defense strength and with the average number of goals playing away at 1.239. For this game, Everton is predicted to have 1.180 goals.</p>
 <h2>Poisson Distribution given the average goal</h2>
 <p>The calculation of the average goal is the crucial one. Since we are already finished with that, we can now use the Poisson distribution! Using the equation presented, we determine the probability of 0, 1, 2, &hellip;, 6 goals.</p>
+<figure><img src="assets/img/poisson-equation-in-sports-betting-f3.jpg" alt="Article figure" loading="lazy"></figure>
 <p>The most probable thing that will happen is that they will score at least one goal each (34.5% and 36.7%). So how can this be useful in predicting odds? Let's say for example that you are betting on the 1&times;2 market; what you can do is to check all the goal combinations. So, a 0-0 score has a probability of happening of 10.61% (34.5% &times; 30.7%). We can determine the 1&times;2 odds by checking all the possible score combinations.</p>
+<figure><img src="assets/img/poisson-equation-in-sports-betting-f4.jpg" alt="Article figure" loading="lazy"></figure>
 <p>I have just considered instances up to 3 goals, that is why the total percentage is only 88.55%, not 100%. It will be too many to calculate if you consider up to, say, 6 goals. Fortunately there is an online calculator [2] to determine the 1&times;2 odds using the average goals for each team so we won't have to do it the hard way.</p>
 <h2>Checking our prediction</h2>
 <p>From the online 1&times;2 odds calculator, we can determine the 1&times;2 odds from our predictions. The true odds (without profit margin) are 32.7% &ndash; 28.7% &ndash; 38.6%. Now, let's put it to the test. Is our calculation correct? I have checked the odds of the game from SBObet.</p>
+<figure><img src="assets/img/poisson-equation-in-sports-betting-f5.jpg" alt="Article figure" loading="lazy"></figure>
 <p>Since this has a profit margin of 7.23%, we need to normalize it. We take the inverse of these odds and then divide by 107.23% so that we can see the true odds.</p>
+<figure><img src="assets/img/poisson-equation-in-sports-betting-f6.jpg" alt="Article figure" loading="lazy"></figure>
 <p>Our predictions are almost the same, with only 0.1% discrepancy! It's almost the same! We probably, by a little bit, may have cracked the code on how SBObet creates its odds! Our Poisson calculation is working!</p>
+<figure><img src="assets/img/poisson-equation-in-sports-betting-f7.jpg" alt="Article figure" loading="lazy"></figure>
 <h2>Use of Poisson in sports betting and its limitations</h2>
 <p>From our calculations, it can be seen that social, environmental and other factors are not accounted for. Maybe a new player will be introduced. Or there is hatred between players. As a bettor, you can account for other factors the system cannot. As we have seen in the calculations, only previous records are accounted for (although some bookmakers may take these into account).</p>
 <p>Poisson distribution is a powerful tool in sports betting especially if combined with other sports betting concepts such as the Expected Value. Good thing I was able to use this equation not just for computing quantum gases which I have no idea on its significance&mdash;but for a more practical one.</p>

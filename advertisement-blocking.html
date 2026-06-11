@@ -43,10 +43,16 @@
 </ul>
 <h2>Principal Components Analysis</h2>
 <p>We can see that our data is 3,278 entries with 1,559 columns. Our data has too many columns. To solve this too much dimensionality, we shall use principal components analysis. We run an initial PCA fit on the full data set.</p>
+<figure><img src="assets/img/advertisement-blocking-f1.jpg" alt="Article figure" loading="lazy"></figure>
 <p>We find that up to ~110 components, we achieve around 75% of the cumulative proportion of variance explained. We try to lower it since 110 components is still very large: at 73 components, we can explain 60% of the variance.</p>
+<figure><img src="assets/img/advertisement-blocking-f2.jpg" alt="Article figure" loading="lazy"></figure>
+<figure><img src="assets/img/advertisement-blocking-f3.jpg" alt="Article figure" loading="lazy"></figure>
+<figure><img src="assets/img/advertisement-blocking-f4.jpg" alt="Article figure" loading="lazy"></figure>
 <h2>Support Vector Machines</h2>
 <p>We try Support Vector Machines to predict if an image is an ad or not. We split the data into train and test sets, and find the best model.</p>
+<figure><img src="assets/img/advertisement-blocking-f5.jpg" alt="Article figure" loading="lazy"></figure>
 <p>We check the best model in terms of the accuracy. For the SVM technique, we can see that the best model in terms of accuracy is the SVM model with a Linear kernel, having 96.3% accuracy. However, this is a close call with the one with a Radial Kernel. Now, we look at the value of specificity: the Radial Kernel has a better specificity. As such, since the accuracy difference between the Radial and Linear kernels is very small, we would choose the Linear Kernel SVM to classify ads based on the attributes provided.</p>
+<figure><img src="assets/img/advertisement-blocking-f6.jpg" alt="Article figure" loading="lazy"></figure>
 <p>The full code can be found at <a href="https://github.com/rlbartolome/advertisement" target="_blank" rel="noopener">github.com/rlbartolome/advertisement</a>. I included the data loading, transformation and kernel selection codes there.</p>
 
 <div class="pager"><a class="prev" href="image-style-transfer-using-cnn.html"><span class="dir">&larr; Previous</span><span class="pt">What if famous foreign painters were Filipinos?</span></a><a class="next" href="e-learning-effects.html"><span class="dir">Next &rarr;</span><span class="pt">Boon or Bane? Is e-learning affecting the grades of students?</span></a></div>
